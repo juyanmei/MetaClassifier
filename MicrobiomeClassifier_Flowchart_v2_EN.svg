@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="1000" height="1600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Define Styles -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#333" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="500" y="50" font-family="Arial" font-size="24" text-anchor="middle" font-weight="bold">MicrobiomeClassifier.py Workflow Diagram</text>
+  
+  <!-- 1. Parameter Parsing -->
+  <rect x="400" y="80" width="200" height="60" rx="10" ry="10" fill="#E6F2FF" stroke="#333" stroke-width="2"/>
+  <text x="500" y="120" font-family="Arial" font-size="16" text-anchor="middle">Parameter Parsing</text>
+  
+  <!-- 2. Data Loading -->
+  <rect x="400" y="180" width="200" height="60" rx="10" ry="10" fill="#E6F2FF" stroke="#333" stroke-width="2"/>
+  <text x="500" y="220" font-family="Arial" font-size="16" text-anchor="middle">Data Loading</text>
+  
+  <!-- 3. Data Filtering -->
+  <rect x="400" y="280" width="200" height="60" rx="10" ry="10" fill="#E6F2FF" stroke="#333" stroke-width="2"/>
+  <text x="500" y="320" font-family="Arial" font-size="16" text-anchor="middle">Data Filtering</text>
+  
+  <!-- 4. Model Initialization -->
+  <rect x="400" y="380" width="200" height="60" rx="10" ry="10" fill="#FFEBCC" stroke="#333" stroke-width="2"/>
+  <text x="500" y="420" font-family="Arial" font-size="16" text-anchor="middle">Model Initialization</text>
+  
+  <!-- 5. Feature Selection (Condition) -->
+  <polygon points="500,480 600,520 500,560 400,520" fill="#FFFFCC" stroke="#333" stroke-width="2"/>
+  <text x="500" y="525" font-family="Arial" font-size="16" text-anchor="middle">Feature Selection?</text>
+  
+  <!-- 6. Feature Selection -->
+  <rect x="650" y="490" width="200" height="60" rx="10" ry="10" fill="#CCFFCC" stroke="#333" stroke-width="2"/>
+  <text x="750" y="525" font-family="Arial" font-size="16" text-anchor="middle">Feature Selection</text>
+  
+  <!-- 7. Parameter Tuning (Condition) -->
+  <polygon points="500,600 600,640 500,680 400,640" fill="#FFFFCC" stroke="#333" stroke-width="2"/>
+  <text x="500" y="645" font-family="Arial" font-size="16" text-anchor="middle">Parameter Tuning?</text>
+  
+  <!-- 8. Parameter Tuning -->
+  <rect x="650" y="610" width="200" height="60" rx="10" ry="10" fill="#CCFFCC" stroke="#333" stroke-width="2"/>
+  <text x="750" y="645" font-family="Arial" font-size="16" text-anchor="middle">Parameter Tuning</text>
+  
+  <!-- 9. Model Evaluation -->
+  <rect x="400" y="720" width="200" height="60" rx="10" ry="10" fill="#FFCCCC" stroke="#333" stroke-width="2"/>
+  <text x="500" y="755" font-family="Arial" font-size="16" text-anchor="middle">Model Evaluation</text>
+  
+  <!-- 10. Feature Importance Calculation -->
+  <rect x="350" y="820" width="300" height="60" rx="10" ry="10" fill="#FFCCCC" stroke="#333" stroke-width="2"/>
+  <text x="500" y="855" font-family="Arial" font-size="16" text-anchor="middle">Feature Importance Calculation</text>
+  
+  <!-- 11. Ensemble Learning (Condition) -->
+  <polygon points="500,920 600,960 500,1000 400,960" fill="#FFFFCC" stroke="#333" stroke-width="2"/>
+  <text x="500" y="965" font-family="Arial" font-size="16" text-anchor="middle">Ensemble Learning?</text>
+  
+  <!-- 12. Ensemble Learning -->
+  <rect x="650" y="930" width="200" height="60" rx="10" ry="10" fill="#CCFFCC" stroke="#333" stroke-width="2"/>
+  <text x="750" y="965" font-family="Arial" font-size="16" text-anchor="middle">Ensemble Learning</text>
+  
+  <!-- 13. Result Processing -->
+  <rect x="400" y="1040" width="200" height="60" rx="10" ry="10" fill="#FFCCFF" stroke="#333" stroke-width="2"/>
+  <text x="500" y="1075" font-family="Arial" font-size="16" text-anchor="middle">Result Processing</text>
+  
+  <!-- 14. Result Saving -->
+  <rect x="400" y="1140" width="200" height="60" rx="10" ry="10" fill="#FFCCFF" stroke="#333" stroke-width="2"/>
+  <text x="500" y="1175" font-family="Arial" font-size="16" text-anchor="middle">Result Saving</text>
+  
+  <!-- 15. Chart Generation -->
+  <rect x="400" y="1240" width="200" height="60" rx="10" ry="10" fill="#FFCCFF" stroke="#333" stroke-width="2"/>
+  <text x="500" y="1275" font-family="Arial" font-size="16" text-anchor="middle">Chart Generation</text>
+  
+  <!-- Connection Lines -->
+  <!-- Parameter Parsing -> Data Loading -->
+  <line x1="500" y1="140" x2="500" y2="180" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- Data Loading -> Data Filtering -->
+  <line x1="500" y1="240" x2="500" y2="280" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- Data Filtering -> Model Initialization -->
+  <line x1="500" y1="340" x2="500" y2="380" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- Model Initialization -> Feature Selection Condition -->
+  <line x1="500" y1="440" x2="500" y2="480" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- Feature Selection Condition -> Feature Selection -->
+  <line x1="600" y1="520" x2="650" y2="520" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="620" y="510" font-family="Arial" font-size="12" text-anchor="middle">Yes</text>
+  
+  <!-- Feature Selection -> Parameter Tuning Condition -->
+  <path d="M 750,550 L 750,580 L 500,580 L 500,600" stroke="#333" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  
+  <!-- Feature Selection Condition -> Parameter Tuning Condition (Skip Feature Selection) -->
+  <line x1="500" y1="560" x2="500" y2="600" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="490" y="580" font-family="Arial" font-size="12" text-anchor="middle">No</text>
+  
+  <!-- Parameter Tuning Condition -> Parameter Tuning -->
+  <line x1="600" y1="640" x2="650" y2="640" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="620" y="630" font-family="Arial" font-size="12" text-anchor="middle">Yes</text>
+  
+  <!-- Parameter Tuning -> Model Evaluation -->
+  <path d="M 750,670 L 750,700 L 500,700 L 500,720" stroke="#333" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  
+  <!-- Parameter Tuning Condition -> Model Evaluation (Skip Parameter Tuning) -->
+  <line x1="500" y1="680" x2="500" y2="720" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="490" y="700" font-family="Arial" font-size="12" text-anchor="middle">No</text>
+  
+  <!-- Model Evaluation -> Feature Importance Calculation -->
+  <line x1="500" y1="780" x2="500" y2="820" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- Feature Importance Calculation -> Ensemble Learning Condition -->
+  <line x1="500" y1="880" x2="500" y2="920" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- Ensemble Learning Condition -> Ensemble Learning -->
+  <line x1="600" y1="960" x2="650" y2="960" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="620" y="950" font-family="Arial" font-size="12" text-anchor="middle">Yes</text>
+  
+  <!-- Ensemble Learning -> Result Processing -->
+  <path d="M 750,990 L 750,1020 L 500,1020 L 500,1040" stroke="#333" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  
+  <!-- Ensemble Learning Condition -> Result Processing (Skip Ensemble Learning) -->
+  <line x1="500" y1="1000" x2="500" y2="1040" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="490" y="1020" font-family="Arial" font-size="12" text-anchor="middle">No</text>
+  
+  <!-- Result Processing -> Result Saving -->
+  <line x1="500" y1="1100" x2="500" y2="1140" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- Result Saving -> Chart Generation -->
+  <line x1="500" y1="1200" x2="500" y2="1240" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- Legend -->
+  <rect x="100" y="1350" width="20" height="20" fill="#E6F2FF" stroke="#333" stroke-width="1"/>
+  <text x="130" y="1365" font-family="Arial" font-size="14" text-anchor="start">Data Processing</text>
+  
+  <rect x="250" y="1350" width="20" height="20" fill="#FFEBCC" stroke="#333" stroke-width="1"/>
+  <text x="280" y="1365" font-family="Arial" font-size="14" text-anchor="start">Model Initialization</text>
+  
+  <rect x="400" y="1350" width="20" height="20" fill="#CCFFCC" stroke="#333" stroke-width="1"/>
+  <text x="430" y="1365" font-family="Arial" font-size="14" text-anchor="start">Optional Processing</text>
+  
+  <rect x="550" y="1350" width="20" height="20" fill="#FFCCCC" stroke="#333" stroke-width="1"/>
+  <text x="580" y="1365" font-family="Arial" font-size="14" text-anchor="start">Model Evaluation</text>
+  
+  <rect x="700" y="1350" width="20" height="20" fill="#FFCCFF" stroke="#333" stroke-width="1"/>
+  <text x="730" y="1365" font-family="Arial" font-size="14" text-anchor="start">Result Output</text>
+  
+  <polygon points="850,1350 870,1360 850,1370 830,1360" fill="#FFFFCC" stroke="#333" stroke-width="1"/>
+  <text x="880" y="1365" font-family="Arial" font-size="14" text-anchor="start">Condition</text>
+  
+  <!-- Model Selection Details -->
+  <rect x="100" y="1430" width="800" height="80" rx="10" ry="10" fill="#FFEBCC" stroke="#333" stroke-width="2" opacity="0.9"/>
+  <text x="500" y="1450" font-family="Arial" font-size="16" text-anchor="middle" font-weight="bold">Supported Machine Learning Models</text>
+  <text x="500" y="1475" font-family="Arial" font-size="14" text-anchor="middle">RandomForest | CatBoost | LogisticRegression | MLP | XGBoost | lasso</text>
+  <text x="500" y="1495" font-family="Arial" font-size="14" text-anchor="middle">SVM | ElasticNet | NeuralNetwork | GaussianNB | KNN</text>
+  
+  <!-- Copyright Information -->
+  <text x="500" y="1530" font-family="Arial" font-size="14" text-anchor="middle">© Microbiome Classifier - For Microbiome Data Analysis</text>
+</svg>

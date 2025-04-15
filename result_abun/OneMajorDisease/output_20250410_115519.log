@@ -1,0 +1,63 @@
+----------------------------
+Data loading...
+    The original prof is: (300, 300)
+    The original metadata is: (300, 5)
+
+----------------------------
+Data filtering...
+The filtered prof is: (300, 300)
+
+----------------------------
+         species1  species2  species3  species4  species5
+sample1       0.0      0.01       0.0       0.0       0.0
+sample2       0.0      0.00       0.0       0.0       0.0
+sample3       0.0      0.00       0.0       0.0       0.0
+sample4       0.0      0.00       0.0       0.0       0.0
+sample5       0.0      0.00       0.0       0.0       0.0
+Unique y_cohort values: ['DiseaseA' 'DiseaseB' 'DiseaseC']
+Model Initializing...
+The model : ['lasso', 'LogisticRegression']
+-----------------------------------
+
+HyperparameterTuner Start!!!
+    The model is: LogisticRegression(C=10, class_weight='balanced', penalty='l1', random_state=42,
+                   solver='liblinear')
+Fitting 3 folds for each of 126 candidates, totalling 378 fits
+    LeaveOneGroupOut GridSearchCV
+    The best params : 
+        LogisticRegression(C=100, class_weight='balanced', max_iter=500, penalty='l1',
+                   random_state=42, solver='saga')
+HyperparameterTuner Finished!!!
+
+-----------------------------------
+HyperparameterTuner Start!!!
+    The model is: LogisticRegression()
+Fitting 3 folds for each of 12 candidates, totalling 36 fits
+    LeaveOneGroupOut GridSearchCV
+    The best params : 
+        LogisticRegression(max_iter=500, penalty=None)
+HyperparameterTuner Finished!!!
+
+-----------------------------------
+Model Evaluating...
+    For {'lasso': LogisticRegression(C=100, class_weight='balanced', max_iter=500, penalty='l1',
+                   random_state=42, solver='saga'), 'LogisticRegression': LogisticRegression(max_iter=500, penalty=None)}...
+    Using LeaveOneGroupOut for cross-validation
+    Warning: n_repeats parameter is ignored when using LeaveOneGroupOut as it's deterministic
+    Warning: n_repeats parameter is ignored when using LeaveOneGroupOut as it's deterministic
+    Warning: n_repeats parameter is ignored when using LeaveOneGroupOut as it's deterministic
+Model Evaluation Finished!!!
+----------------------------------
+
+Calculating Feature Importance...
+    For model lasso 
+    Using StratifiedKFold with 10 folds for cross-validation
+    For model LogisticRegression 
+    Using StratifiedKFold with 10 folds for cross-validation
+All boxplots have been saved to './result_abun/OneMajorDisease/OneMajorDisease_None_Scores_Feature_False_TurnerTrue.pdf'.
+The optimal cutoff value for lasso is: 0.2839760779534499
+The AUC value for lasso is: 0.5116888888888889
+The optimal cutoff value for LogisticRegression is: 0.001481812462800306
+The AUC value for LogisticRegression is: 0.5059555555555555
+All boxplots have been saved to './result_abun/OneMajorDisease/OneMajorDisease_None_IndexBoxplot_FeatureFalse_TurnerTrue.pdf'.
+Cutoff values have been saved to './result_abun/OneMajorDisease/OneMajorDisease_None_Cutoff_FeatureFalse_TurnerTrue.csv'.

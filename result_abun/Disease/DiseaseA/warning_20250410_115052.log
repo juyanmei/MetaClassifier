@@ -1,0 +1,1 @@
+2025-04-10 11:51:00,329 - WARNING - /Users/yanmeiju/anaconda3/envs/python3.11/lib/python3.11/site-packages/sklearn/linear_model/_sag.py:349 - ConvergenceWarning: The max_iter was reached which means the coef_ did not converge

@@ -1,0 +1,79 @@
+----------------------------
+Data loading...
+    The original prof is: (300, 300)
+    The original metadata is: (300, 5)
+
+----------------------------
+Data filtering...
+    For Project ProjectA, the filtered metadata is: (50, 5)
+The filtered prof is: (50, 300)
+
+----------------------------
+         species1  species2  species3  species4  species5
+sample1       0.0      0.01       0.0       0.0       0.0
+sample2       0.0      0.00       0.0       0.0       0.0
+sample3       0.0      0.00       0.0       0.0       0.0
+sample4       0.0      0.00       0.0       0.0       0.0
+sample5       0.0      0.00       0.0       0.0       0.0
+not apply LOCO, y_cohort is None
+Model Initializing...
+The model : ['lasso', 'LogisticRegression']
+-----------------------------------
+
+HyperparameterTuner Start!!!
+    The model is: LogisticRegression(C=10, class_weight='balanced', penalty='l1', random_state=42,
+                   solver='liblinear')
+    Basic GridSearchCV
+    The best params : 
+        LogisticRegression(C=100, class_weight='balanced', max_iter=500, penalty='l1',
+                   random_state=42, solver='saga', tol=0.01)
+HyperparameterTuner Finished!!!
+
+-----------------------------------
+HyperparameterTuner Start!!!
+    The model is: LogisticRegression()
+    Basic GridSearchCV
+    The best params : 
+        LogisticRegression(max_iter=5000, penalty=None, solver='sag')
+HyperparameterTuner Finished!!!
+
+-----------------------------------
+Model Evaluating...
+    For {'lasso': LogisticRegression(C=100, class_weight='balanced', max_iter=500, penalty='l1',
+                   random_state=42, solver='saga', tol=0.01), 'LogisticRegression': LogisticRegression(max_iter=5000, penalty=None, solver='sag')}...
+    Using StratifiedKFold with 10 folds for cross-validation
+Repeat 1/10
+Repeat 2/10
+Repeat 3/10
+Repeat 4/10
+Repeat 5/10
+Repeat 6/10
+Repeat 7/10
+Repeat 8/10
+Repeat 9/10
+Repeat 10/10
+Repeat 1/10
+Repeat 2/10
+Repeat 3/10
+Repeat 4/10
+Repeat 5/10
+Repeat 6/10
+Repeat 7/10
+Repeat 8/10
+Repeat 9/10
+Repeat 10/10
+Model Evaluation Finished!!!
+----------------------------------
+
+Calculating Feature Importance...
+    For model lasso 
+    Using StratifiedKFold with 10 folds for cross-validation
+    For model LogisticRegression 
+    Using StratifiedKFold with 10 folds for cross-validation
+All boxplots have been saved to './result_abun/Project/ProjectA/Project_ProjectA_Scores_Feature_False_TurnerTrue.pdf'.
+The optimal cutoff value for lasso is: 0.4919299439554948
+The AUC value for lasso is: 0.6352
+The optimal cutoff value for LogisticRegression is: 0.55486833815651
+The AUC value for LogisticRegression is: 0.7104
+All boxplots have been saved to './result_abun/Project/ProjectA/Project_ProjectA_IndexBoxplot_FeatureFalse_TurnerTrue.pdf'.
+Cutoff values have been saved to './result_abun/Project/ProjectA/Project_ProjectA_Cutoff_FeatureFalse_TurnerTrue.csv'.

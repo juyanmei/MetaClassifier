@@ -1,0 +1,163 @@
+----------------------------
+Data loading...
+    The original prof is: (300, 300)
+    The original metadata is: (300, 5)
+
+----------------------------
+Data filtering...
+    For Disease DiseaseA, the filtered metadata is: (100, 5)
+The filtered prof is: (100, 300)
+
+----------------------------
+         species1  species2  species3  species4  species5
+sample1       0.0      0.01       0.0       0.0       0.0
+sample2       0.0      0.00       0.0       0.0       0.0
+sample3       0.0      0.00       0.0       0.0       0.0
+sample4       0.0      0.00       0.0       0.0       0.0
+sample5       0.0      0.00       0.0       0.0       0.0
+not apply LOCO, y_cohort is None
+Model Initializing...
+The model : ['lasso', 'LogisticRegression']
+-----------------------------------
+
+Feature Selecting...
+    For model lasso : 
+    Using StratifiedKFold with 10 folds for cross-validation
+        lasso selected_indices : []
+        lasso selected_indices : []
+        lasso selected_indices : []
+        lasso selected_indices : []
+        lasso selected_indices : []
+        lasso selected_indices : []
+        lasso selected_indices : []
+        lasso selected_indices : []
+        lasso selected_indices : []
+        lasso selected_indices : []
+        Correlation Calculating...
+            Removed Features for lasso: []
+                after (100, 0)
+        Correlation done...
+    union of Selected Feature indices : lasso : 0 : 
+        []
+    For model LogisticRegression : 
+    Using StratifiedKFold with 10 folds for cross-validation
+        LogisticRegression selected_indices : [  4  20  53  74  75  80  90 107 115 123 147 151 154 177 183 209 238 246
+ 265 290]
+        LogisticRegression selected_indices : [  4  52  53  75  94 103 107 109 115 143 149 154 177 183 206 209 238 243
+ 246 290]
+        LogisticRegression selected_indices : [  4  20  33  61  80  86  89  90 103 115 117 123 147 177 206 209 210 222
+ 238 290]
+        LogisticRegression selected_indices : [  4  42  53  75  86  90 103 115 117 123 154 177 183 209 238 263 265 274
+ 290 293]
+        LogisticRegression selected_indices : [  4  30  52  53  65  86  90 107 114 115 117 123 126 154 177 183 187 206
+ 246 290]
+        LogisticRegression selected_indices : [  4  20  27  42  50  61  86  90 107 115 117 147 177 183 206 238 246 265
+ 274 290]
+        LogisticRegression selected_indices : [  4  53  65  80  86  90 103 115 123 136 154 177 183 210 238 243 246 261
+ 265 290]
+        LogisticRegression selected_indices : [  4  20  53  74  75  80  90 103 114 115 117 123 148 149 154 177 209 246
+ 267 290]
+        LogisticRegression selected_indices : [  4  16  19  20  42  53  86 115 123 143 147 149 151 177 180 183 206 213
+ 238 290]
+        LogisticRegression selected_indices : [  4  61  86  90 107 115 123 126 145 147 176 177 180 183 206 210 238 246
+ 260 290]
+        Correlation Calculating...
+            Removed Features for LogisticRegression: []
+                after (100, 57)
+        Correlation done...
+    union of Selected Feature indices : LogisticRegression : 57 : 
+        [4, 16, 19, 20, 27, 30, 33, 42, 50, 52, 53, 61, 65, 74, 75, 80, 86, 89, 90, 94, 103, 107, 109, 114, 115, 117, 123, 126, 136, 143, 145, 147, 148, 149, 151, 154, 176, 177, 180, 183, 187, 206, 209, 210, 213, 222, 238, 243, 246, 260, 261, 263, 265, 267, 274, 290, 293]
+selected_feature : {'lasso': [], 'LogisticRegression': [4, 16, 19, 20, 27, 30, 33, 42, 50, 52, 53, 61, 65, 74, 75, 80, 86, 89, 90, 94, 103, 107, 109, 114, 115, 117, 123, 126, 136, 143, 145, 147, 148, 149, 151, 154, 176, 177, 180, 183, 187, 206, 209, 210, 213, 222, 238, 243, 246, 260, 261, 263, 265, 267, 274, 290, 293]}
+Feature Selection Finished!!!
+
+-----------------------------------
+HyperparameterTuner Start!!!
+    The model is: LogisticRegression(C=10, class_weight='balanced', penalty='l1', random_state=42,
+                   solver='liblinear')
+    For selected features
+Error tuning lasso: 
+All the 630 fits failed.
+It is very likely that your model is misconfigured.
+You can try to debug the error by setting error_score='raise'.
+
+Below are more details about the failures:
+--------------------------------------------------------------------------------
+630 fits failed with the following error:
+Traceback (most recent call last):
+  File "/Users/yanmeiju/anaconda3/envs/python3.11/lib/python3.11/site-packages/sklearn/model_selection/_validation.py", line 888, in _fit_and_score
+    estimator.fit(X_train, y_train, **fit_params)
+  File "/Users/yanmeiju/anaconda3/envs/python3.11/lib/python3.11/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yanmeiju/anaconda3/envs/python3.11/lib/python3.11/site-packages/sklearn/linear_model/_logistic.py", line 1223, in fit
+    X, y = self._validate_data(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yanmeiju/anaconda3/envs/python3.11/lib/python3.11/site-packages/sklearn/base.py", line 650, in _validate_data
+    X, y = check_X_y(X, y, **check_params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yanmeiju/anaconda3/envs/python3.11/lib/python3.11/site-packages/sklearn/utils/validation.py", line 1301, in check_X_y
+    X = check_array(
+        ^^^^^^^^^^^^
+  File "/Users/yanmeiju/anaconda3/envs/python3.11/lib/python3.11/site-packages/sklearn/utils/validation.py", line 887, in check_array
+    dtype_orig = np.result_type(*dtypes_orig)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: at least one array or dtype is required
+
+HyperparameterTuner Start!!!
+    The model is: LogisticRegression()
+    For selected features
+    Basic GridSearchCV
+    The best params : 
+        LogisticRegression(max_iter=500, penalty=None)
+HyperparameterTuner Finished!!!
+
+-----------------------------------
+Model Evaluating...
+    For {'lasso': LogisticRegression(C=10, class_weight='balanced', penalty='l1', random_state=42,
+                   solver='liblinear'), 'LogisticRegression': LogisticRegression(max_iter=500, penalty=None)}...
+    Using StratifiedKFold with 10 folds for cross-validation
+Repeat 1/10
+Error in evaluate_models for model lasso: 
+All the 10 fits failed.
+It is very likely that your model is misconfigured.
+You can try to debug the error by setting error_score='raise'.
+
+Below are more details about the failures:
+--------------------------------------------------------------------------------
+10 fits failed with the following error:
+Traceback (most recent call last):
+  File "/Users/yanmeiju/anaconda3/envs/python3.11/lib/python3.11/site-packages/sklearn/model_selection/_validation.py", line 888, in _fit_and_score
+    estimator.fit(X_train, y_train, **fit_params)
+  File "/Users/yanmeiju/anaconda3/envs/python3.11/lib/python3.11/site-packages/sklearn/base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yanmeiju/anaconda3/envs/python3.11/lib/python3.11/site-packages/sklearn/linear_model/_logistic.py", line 1223, in fit
+    X, y = self._validate_data(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yanmeiju/anaconda3/envs/python3.11/lib/python3.11/site-packages/sklearn/base.py", line 650, in _validate_data
+    X, y = check_X_y(X, y, **check_params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yanmeiju/anaconda3/envs/python3.11/lib/python3.11/site-packages/sklearn/utils/validation.py", line 1301, in check_X_y
+    X = check_array(
+        ^^^^^^^^^^^^
+  File "/Users/yanmeiju/anaconda3/envs/python3.11/lib/python3.11/site-packages/sklearn/utils/validation.py", line 887, in check_array
+    dtype_orig = np.result_type(*dtypes_orig)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: at least one array or dtype is required
+
+Repeat 1/10
+Repeat 2/10
+Repeat 3/10
+Repeat 4/10
+Repeat 5/10
+Repeat 6/10
+Repeat 7/10
+Repeat 8/10
+Repeat 9/10
+Repeat 10/10
+Model Evaluation Finished!!!
+----------------------------------
+
+Calculating Feature Importance...
+    For model lasso 
+    Using StratifiedKFold with 10 folds for cross-validation

@@ -1,0 +1,13 @@
+,Model,Accuracy,Precision,Recall,F1,ROC_AUC,MCC,Specificity,CV,Repeat,target,target_id,feature,turner
+0,lasso,0.5,1.0,0.0,0.0,0.5,0.0,1.0,ProjectA,1,OneMajorDisease,,False,True
+1,lasso,0.5,1.0,0.0,0.0,0.5,0.0,1.0,ProjectB,1,OneMajorDisease,,False,True
+2,lasso,0.5,1.0,0.0,0.0,0.5,0.0,1.0,ProjectC,1,OneMajorDisease,,False,True
+3,lasso,0.5,1.0,0.0,0.0,0.5,0.0,1.0,ProjectD,1,OneMajorDisease,,False,True
+4,lasso,0.5,1.0,0.0,0.0,0.5,0.0,1.0,ProjectE,1,OneMajorDisease,,False,True
+5,lasso,0.5,1.0,0.0,0.0,0.5,0.0,1.0,ProjectF,1,OneMajorDisease,,False,True
+6,LogisticRegression,0.42,0.4230769230769231,0.44,0.43137254901960786,0.40800000000000003,-0.16012815380508713,0.4,ProjectA,1,OneMajorDisease,,False,True
+7,LogisticRegression,0.44,0.4482758620689655,0.52,0.48148148148148145,0.5087999999999999,-0.12156613477096617,0.36,ProjectB,1,OneMajorDisease,,False,True
+8,LogisticRegression,0.54,0.5357142857142857,0.6,0.5660377358490566,0.528,0.08058229640253803,0.48,ProjectC,1,OneMajorDisease,,False,True
+9,LogisticRegression,0.48,0.48148148148148145,0.52,0.5,0.47200000000000003,-0.0401286176952564,0.44,ProjectD,1,OneMajorDisease,,False,True
+10,LogisticRegression,0.48,0.47619047619047616,0.4,0.43478260869565216,0.4736,-0.04052204492365539,0.56,ProjectE,1,OneMajorDisease,,False,True
+11,LogisticRegression,0.44,0.44,0.44,0.44,0.44,-0.12,0.44,ProjectF,1,OneMajorDisease,,False,True

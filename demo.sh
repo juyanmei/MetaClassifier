@@ -1,0 +1,3 @@
+#!/bin/bash
+python  MergeCohort.py --prof_file test/prof_test.csv --metadata_file test/metadata_test.csv --target Project --target_id ProjectA --output ./result  --feature No --turner Yes --ensemble No --y_cohort_group No --y_cohort_type Project --models lasso,LogisticRegression --repeat 2 --pres No --cv 10 --cpu 4 
+#python  MergeCohort.py --prof_file data/prof_adjust_pre1.csv --metadata_file data/phe_adjust_pre1.csv --target Disease --target_id Alzheimer --output ./result  --feature Yes --turner Yes --ensemble No --y_cohort_group Yes --y_cohort_type binary --models lasso,LogisticRegression --repeat 2 --pres No --cv 10 --cpu 4
