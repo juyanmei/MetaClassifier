@@ -3,6 +3,8 @@
 
 # 但包含以下文件和目录
 !README.md
+!README_EN.md
+!README_CN.md
 !src/
 !src/metaClassifier/
 !src/metaClassifier/**

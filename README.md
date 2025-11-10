@@ -1,148 +1,151 @@
 # metaClassifier v1.0
 
-**宏基因组分类模型构建框架** - 基于两阶段架构的完整机器学习流水线
+**Microbiome Classification Framework** - A complete machine learning pipeline based on two-stage architecture
 
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-## 📋 目录
+**Language**: [English](README.md) | [中文](README_CN.md)
 
-- [概述](#概述)
-- [核心特性](#核心特性)
-- [架构设计](#架构设计)
-- [快速开始](#快速开始)
-- [安装](#安装)
-- [使用指南](#使用指南)
-- [项目结构](#项目结构)
-- [文档](#文档)
-- [贡献指南](#贡献指南)
-- [许可证](#许可证)
+## 📋 Table of Contents
 
-## 概述
+- [Overview](#overview)
+- [Key Features](#key-features)
+- [Architecture](#architecture)
+- [Quick Start](#quick-start)
+- [Installation](#installation)
+- [Usage Guide](#usage-guide)
+- [Project Structure](#project-structure)
+- [Documentation](#documentation)
+- [Contributing](#contributing)
+- [License](#license)
 
-metaClassifier v1.0 是一个专为宏基因组数据设计的机器学习分类框架，采用**两阶段架构**实现无偏性能估计和稳定特征选择：
+## Overview
 
-1. **第一阶段：嵌套CV评估** - 无偏性能估计 + 共识特征选择
-2. **第二阶段：最终模型训练** - 使用共识特征集 + 超参数调优
+metaClassifier v1.0 is a machine learning classification framework designed specifically for microbiome data, implementing **two-stage architecture** for unbiased performance estimation and stable feature selection:
 
-### 设计理念
+1. **Stage 1: Nested CV Evaluation** - Unbiased performance estimation + Consensus feature selection
+2. **Stage 2: Final Model Training** - Using consensus feature set + Hyperparameter tuning
 
-- ✅ **无偏性能估计**：严格的嵌套交叉验证确保性能评估的可靠性
-- ✅ **稳定特征选择**：通过内层CV的共识机制筛选稳定特征
-- ✅ **宏基因组优化**：针对宏基因组数据特点的预处理和特征工程
-- ✅ **完整可重现性**：详细记录所有实验参数和结果
+### Design Philosophy
 
-## 核心特性
+- ✅ **Unbiased Performance Estimation**: Strict nested cross-validation ensures reliable performance assessment
+- ✅ **Stable Feature Selection**: Consensus mechanism through inner CV to select stable features
+- ✅ **Microbiome-Optimized**: Preprocessing and feature engineering tailored for microbiome data characteristics
+- ✅ **Complete Reproducibility**: Detailed recording of all experimental parameters and results
 
-### 🎯 两阶段架构
+## Key Features
 
-**第一阶段：嵌套CV评估**
-- 嵌套交叉验证（支持Repeated K-Fold和LOCO策略）
-- 联合特征选择和超参数调优
-- 共识特征集生成
-- 无偏性能指标计算
+### 🎯 Two-Stage Architecture
 
-**第二阶段：最终模型训练**
-- 基于共识特征集训练最终模型
-- 独立的超参数调优
-- 模型保存和部署准备
+**Stage 1: Nested CV Evaluation**
+- Nested cross-validation (supports Repeated K-Fold and LOCO strategies)
+- Joint feature selection and hyperparameter tuning
+- Consensus feature set generation
+- Unbiased performance metrics calculation
 
-### 🔬 宏基因组特定功能
+**Stage 2: Final Model Training**
+- Train final model based on consensus feature set
+- Independent hyperparameter tuning
+- Model saving and deployment preparation
 
-- **自适应方差过滤**：根据p/n比动态调整过滤强度
-- **CLR变换**：处理组成型数据的中心对数比变换
-- **有无数据支持**：支持相对丰度和有无（presence/absence）数据
-- **队列分析**：支持Leave-One-Cohort-Out (LOCO)交叉验证
+### 🔬 Microbiome-Specific Features
 
-### 🤖 模型支持
+- **Adaptive Variance Filtering**: Dynamically adjusts filtering intensity based on p/n ratio
+- **CLR Transformation**: Centered log-ratio transformation for compositional data
+- **Presence/Absence Support**: Supports both relative abundance and presence/absence data
+- **Cohort Analysis**: Supports Leave-One-Cohort-Out (LOCO) cross-validation
 
-支持多种机器学习模型：
-- **LASSO** - 线性模型，特征选择能力强
-- **Elastic Net** - 结合L1和L2正则化
-- **Logistic Regression** - 经典逻辑回归
-- **Random Forest** - 集成树模型
-- **CatBoost** - 梯度提升树
-- **XGBoost** - 极端梯度提升
-- **SVM** - 支持向量机
-- **Neural Network** - 神经网络
-- **KNN** - K近邻
-- **Gaussian Naive Bayes** - 高斯朴素贝叶斯
+### 🤖 Model Support
 
-### 📊 报告生成系统
+Supports multiple machine learning models:
+- **LASSO** - Linear model with strong feature selection capability
+- **Elastic Net** - Combines L1 and L2 regularization
+- **Logistic Regression** - Classic logistic regression
+- **Random Forest** - Ensemble tree model
+- **CatBoost** - Gradient boosting tree
+- **XGBoost** - Extreme gradient boosting
+- **SVM** - Support Vector Machine
+- **Neural Network** - Neural network
+- **KNN** - K-Nearest Neighbors
+- **Gaussian Naive Bayes** - Gaussian Naive Bayes
 
-支持多种分析场景的报告生成：
-- `within_disease` - 疾病内项目间比较
-- `between_project` - 项目间交叉验证
-- `between_disease` - 疾病间交叉验证
-- `overall` - 整体性能分析
-- `models` - 多模型比较
-- `predict_external_disease` - 外部疾病预测
-- `predict_external_overall` - 外部整体预测
+### 📊 Reporting System
 
-### 🎨 可视化功能
+Supports multiple analysis scenarios:
+- `within_disease` - Within-disease inter-project comparison
+- `between_project` - Inter-project cross-validation
+- `between_disease` - Inter-disease cross-validation
+- `overall` - Overall performance analysis
+- `models` - Multi-model comparison
+- `predict_external_disease` - External disease prediction
+- `predict_external_overall` - External overall prediction
 
-- ROC曲线绘制（支持repeat均值ROC）
-- 性能指标热图
-- 箱线图比较
-- 特征重要性可视化
+### 🎨 Visualization Features
 
-## 架构设计
+- ROC curve plotting (supports repeat-mean ROC)
+- Performance metrics heatmaps
+- Boxplot comparisons
+- Feature importance visualization
 
-### 两阶段流程
+## Architecture
+
+### Two-Stage Workflow
 
 ```
-数据加载与预处理
+Data Loading & Preprocessing
     ↓
 ┌─────────────────────────────────────┐
-│  第一阶段：嵌套CV评估                │
-│  - 外层CV循环                       │
-│  - 内层CV：特征选择 + 超参数调优    │
-│  - 共识特征集生成                   │
-│  - 性能指标计算                     │
+│  Stage 1: Nested CV Evaluation     │
+│  - Outer CV loop                    │
+│  - Inner CV: Feature selection +    │
+│    Hyperparameter tuning            │
+│  - Consensus feature set generation │
+│  - Performance metrics calculation  │
 └─────────────────────────────────────┘
     ↓
 ┌─────────────────────────────────────┐
-│  第二阶段：最终模型训练              │
-│  - 使用共识特征集                   │
-│  - 超参数调优                       │
-│  - 模型训练与保存                   │
+│  Stage 2: Final Model Training      │
+│  - Use consensus feature set        │
+│  - Hyperparameter tuning            │
+│  - Model training & saving          │
 └─────────────────────────────────────┘
     ↓
-模型部署与报告生成
+Model Deployment & Report Generation
 ```
 
-### 核心组件
+### Core Components
 
 ```
 metaClassifier/
-├── core/                    # 核心功能模块
-│   ├── nested_cv_classifier.py      # 嵌套CV分类器
-│   ├── nested_cv_evaluator.py       # 嵌套CV评估器
-│   ├── final_model_trainer.py       # 最终模型训练器
-│   ├── feature_selector.py          # 特征选择器
-│   └── hyperparameter_tuner.py      # 超参数调优器
-├── data/                    # 数据处理
-│   ├── loader.py            # 数据加载
-│   ├── preprocessor.py      # 数据预处理
-│   └── validator.py         # 数据验证
-├── models/                  # 模型实现
-├── pipelines/               # 流水线
-│   ├── build.py             # 构建流水线
-│   └── report.py            # 报告生成流水线
-├── evaluation/              # 评估模块
-│   ├── metrics.py           # 性能指标
-│   ├── visualizer.py        # 可视化
-│   └── reporter.py          # 报告生成
-└── preprocessing/           # 预处理模块
-    ├── variance_filter.py   # 自适应方差过滤
-    └── clr_transform.py     # CLR变换
+├── core/                    # Core functionality
+│   ├── nested_cv_classifier.py      # Nested CV classifier
+│   ├── nested_cv_evaluator.py       # Nested CV evaluator
+│   ├── final_model_trainer.py       # Final model trainer
+│   ├── feature_selector.py          # Feature selector
+│   └── hyperparameter_tuner.py      # Hyperparameter tuner
+├── data/                    # Data processing
+│   ├── loader.py            # Data loading
+│   ├── preprocessor.py      # Data preprocessing
+│   └── validator.py         # Data validation
+├── models/                  # Model implementations
+├── pipelines/               # Pipelines
+│   ├── build.py             # Build pipeline
+│   └── report.py            # Report generation pipeline
+├── evaluation/              # Evaluation modules
+│   ├── metrics.py           # Performance metrics
+│   ├── visualizer.py        # Visualization
+│   └── reporter.py          # Report generation
+└── preprocessing/           # Preprocessing modules
+    ├── variance_filter.py   # Adaptive variance filtering
+    └── clr_transform.py     # CLR transformation
 ```
 
-## 快速开始
+## Quick Start
 
-### 基本使用
+### Basic Usage
 
-#### 1. 构建模型（build命令）
+#### 1. Build Model (build command)
 
 ```bash
 metaClassifier build \
@@ -155,10 +158,10 @@ metaClassifier build \
     --output results/
 ```
 
-#### 2. 生成报告（report命令）
+#### 2. Generate Report (report command)
 
 ```bash
-# 疾病内项目间比较
+# Within-disease inter-project comparison
 metaClassifier report \
     --scenario within_disease \
     --metadata_file data/metadata.csv \
@@ -166,7 +169,7 @@ metaClassifier report \
     --metric auc \
     --output results/
 
-# 项目间交叉验证
+# Inter-project cross-validation
 metaClassifier report \
     --scenario between_project \
     --metadata_file data/metadata.csv \
@@ -175,14 +178,14 @@ metaClassifier report \
     --output results/
 ```
 
-### Python API使用
+### Python API Usage
 
 ```python
 from metaClassifier.data.loader import DataLoader
 from metaClassifier.core.nested_cv_classifier import create_nested_cv_classifier
 from metaClassifier.core.base import CVStrategy
 
-# 加载数据
+# Load data
 data_loader = DataLoader()
 X, y, groups, original_features, constant_removed_features = data_loader.load_data(
     prof_file="data/profile.csv",
@@ -191,7 +194,7 @@ X, y, groups, original_features, constant_removed_features = data_loader.load_da
     use_clr=False
 )
 
-# 创建嵌套CV分类器
+# Create nested CV classifier
 classifier = create_nested_cv_classifier(
     model_name="lasso",
     cv_strategy=CVStrategy.REPEATED_KFOLD,
@@ -201,33 +204,33 @@ classifier = create_nested_cv_classifier(
     enable_adaptive_filtering=True
 )
 
-# 运行评估
+# Run evaluation
 results = classifier.evaluate(X, y, cohort_info=groups)
 
-# 获取结果
+# Get results
 consensus_features = classifier.consensus_features_
 performance_metrics = classifier.performance_metrics_
 ```
 
-## 安装
+## Installation
 
-### 从源码安装
+### Install from Source
 
 ```bash
-# 克隆仓库
-git clone https://github.com/yourusername/metaClassifier.git
-cd metaClassifier
+# Clone repository
+git clone https://github.com/juyanmei/MetaClassifier.git
+cd MetaClassifier
 
-# 安装依赖
+# Install dependencies
 pip install -r requirements.txt
 
-# 安装包
+# Install package
 pip install -e .
 ```
 
-### 依赖要求
+### Requirements
 
-**核心依赖：**
+**Core Dependencies:**
 - Python >= 3.8
 - numpy >= 1.21.0
 - pandas >= 1.3.0
@@ -235,76 +238,76 @@ pip install -e .
 - matplotlib >= 3.5.0
 - seaborn >= 0.11.0
 
-**可选依赖（用于高级功能）：**
+**Optional Dependencies (for advanced features):**
 - xgboost >= 1.5.0
 - catboost >= 1.0.0
-- optuna >= 3.0.0（用于贝叶斯优化）
+- optuna >= 3.0.0 (for Bayesian optimization)
 
-## 使用指南
+## Usage Guide
 
-### Build命令参数
+### Build Command Parameters
 
 ```bash
 metaClassifier build [OPTIONS]
 
-必需参数：
-  --prof_file PATH           Profile数据文件路径（行=样本，列=物种）
-  --metadata_file PATH       元数据文件路径
+Required Parameters:
+  --prof_file PATH          Profile data file path (rows=samples, cols=species)
+  --metadata_file PATH      Metadata file path
 
-模型参数：
+Model Parameters:
   --model_name {lasso,elasticnet,logistic,randomforest,catboost,neuralnetwork}
-                            模型名称（默认：lasso）
+                            Model name (default: lasso)
 
-交叉验证参数：
+Cross-Validation Parameters:
   --outer_cv_strategy {kfold,loco}
-                            外层CV策略（默认：kfold）
-  --outer_cv_folds INT      外层CV折数（默认：5）
-  --inner_cv_folds INT      内层CV折数（默认：3）
-  --outer_cv_repeats INT    外层CV重复次数（默认：1）
+                            Outer CV strategy (default: kfold)
+  --outer_cv_folds INT      Number of outer CV folds (default: 5)
+  --inner_cv_folds INT      Number of inner CV folds (default: 3)
+  --outer_cv_repeats INT    Number of outer CV repeats (default: 1)
 
-数据处理参数：
-  --use_presence_absence    使用有无数据（默认：True）
-  --use_clr                 应用CLR变换（默认：False）
+Data Processing Parameters:
+  --use_presence_absence    Use presence/absence data (default: True)
+  --use_clr                 Apply CLR transformation (default: False)
   --enable_adaptive_filtering
-                            启用自适应方差过滤（默认：True）
+                            Enable adaptive variance filtering (default: True)
 
-特征选择参数：
-  --feature_selection       启用特征选择（默认：True）
-  --feature_threshold FLOAT 一致特征频率阈值（默认：0.5）
+Feature Selection Parameters:
+  --feature_selection       Enable feature selection (default: True)
+  --feature_threshold FLOAT Consensus feature frequency threshold (default: 0.5)
 
-超参数调优参数：
+Hyperparameter Tuning Parameters:
   --search_method {grid,random,bayes}
-                            超参数搜索方法（默认：grid）
-  --final_cv_folds INT      最终模型阶段CV折数（默认：5）
+                            Hyperparameter search method (default: grid)
+  --final_cv_folds INT      CV folds for final model stage (default: 5)
   --final_search_method {grid,random,bayes}
-                            最终模型阶段搜索方法
+                            Search method for final model stage
 
-输出参数：
-  --output PATH             结果输出目录
-  --cpu INT                 CPU核心数（默认：4）
+Output Parameters:
+  --output PATH             Output directory
+  --cpu INT                 Number of CPU cores (default: 4)
 ```
 
-### Report命令参数
+### Report Command Parameters
 
 ```bash
 metaClassifier report [OPTIONS]
 
-必需参数：
+Required Parameters:
   --scenario {within_disease,between_project,between_disease,overall,models,predict_external_disease,predict_external_overall}
-                            分析场景
-  --metadata_file PATH      元数据文件路径
+                            Analysis scenario
+  --metadata_file PATH      Metadata file path
 
-可选参数：
-  --models MODEL_LIST       模型列表（逗号分隔）
-  --metric {auc,accuracy}   评估指标（默认：auc）
-  --output PATH             结果输出目录
-  --builds_root PATH        构建结果根目录
-  --emit_predictions        生成预测结果
+Optional Parameters:
+  --models MODEL_LIST       Model list (comma-separated)
+  --metric {auc,accuracy}    Evaluation metric (default: auc)
+  --output PATH             Output directory
+  --builds_root PATH        Build results root directory
+  --emit_predictions        Generate prediction results
 ```
 
-### 配置文件支持
+### Configuration File Support
 
-支持通过YAML配置文件设置参数：
+Supports parameter configuration through YAML files:
 
 ```yaml
 # config.yaml
@@ -328,7 +331,7 @@ feature_selection:
   search_method: grid
 ```
 
-使用配置文件：
+Use configuration file:
 
 ```bash
 metaClassifier build \
@@ -337,183 +340,183 @@ metaClassifier build \
     --config config.yaml
 ```
 
-## 项目结构
+## Project Structure
 
 ```
 metaClassifier_v1.0/
 ├── src/
-│   └── metaClassifier/          # 主源代码
-│       ├── cli/                  # 命令行接口
-│       ├── core/                 # 核心功能模块
-│       ├── data/                 # 数据处理
-│       ├── models/               # 模型实现
-│       ├── pipelines/            # 流水线
-│       ├── evaluation/           # 评估模块
-│       ├── preprocessing/        # 预处理模块
-│       ├── config/              # 配置文件
-│       ├── utils/               # 工具函数
-│       ├── extended/            # 扩展功能
-│       └── main.py              # 主入口
-├── docs/                        # 文档
+│   └── metaClassifier/          # Main source code
+│       ├── cli/                  # Command-line interface
+│       ├── core/                 # Core functionality modules
+│       ├── data/                 # Data processing
+│       ├── models/               # Model implementations
+│       ├── pipelines/            # Pipelines
+│       ├── evaluation/           # Evaluation modules
+│       ├── preprocessing/        # Preprocessing modules
+│       ├── config/              # Configuration files
+│       ├── utils/               # Utility functions
+│       ├── extended/            # Extended features
+│       └── main.py              # Main entry point
+├── docs/                        # Documentation
 │   ├── nested_cv_architecture.md
 │   ├── inner_cv_logic_detailed.md
 │   └── ...
-├── tests/                       # 测试套件
-├── requirements.txt             # 依赖列表
-├── setup.py                    # 安装脚本
-├── pyproject.toml              # 项目配置
-└── README.md                   # 本文件
+├── tests/                       # Test suite
+├── requirements.txt             # Dependencies
+├── setup.py                    # Installation script
+├── pyproject.toml              # Project configuration
+└── README.md                   # This file
 ```
 
-## 文档
+## Documentation
 
-详细的文档位于 `docs/` 目录：
+Detailed documentation is located in the `docs/` directory:
 
-- [嵌套CV架构说明](docs/nested_cv_architecture.md) - 嵌套交叉验证的详细设计
-- [内层CV逻辑详解](docs/inner_cv_logic_detailed.md) - 内层CV的联合优化机制
-- [联合优化YAML信息](docs/joint_optimization_yaml_info.md) - 配置文件的详细说明
-- [最终模型训练架构](docs/final_model_training_architecture.md) - 第二阶段模型训练
-- [阈值设置指南](docs/threshold_setting_guide.md) - 决策阈值的选择
+- [Nested CV Architecture](docs/nested_cv_architecture.md) - Detailed design of nested cross-validation
+- [Inner CV Logic Detailed](docs/inner_cv_logic_detailed.md) - Joint optimization mechanism of inner CV
+- [Joint Optimization YAML Info](docs/joint_optimization_yaml_info.md) - Detailed configuration file description
+- [Final Model Training Architecture](docs/final_model_training_architecture.md) - Stage 2 model training
+- [Threshold Setting Guide](docs/threshold_setting_guide.md) - Decision threshold selection
 
-## 关键特性详解
+## Key Features Explained
 
-### 嵌套交叉验证
+### Nested Cross-Validation
 
-metaClassifier采用严格的嵌套交叉验证设计：
+metaClassifier uses strict nested cross-validation design:
 
-1. **外层CV**：评估模型泛化性能
-2. **内层CV**：在每个外层折内进行特征选择和超参数调优
-3. **数据分离**：确保训练、验证、测试数据的严格分离
+1. **Outer CV**: Evaluates model generalization performance
+2. **Inner CV**: Performs feature selection and hyperparameter tuning within each outer fold
+3. **Data Separation**: Ensures strict separation of training, validation, and test data
 
-### 共识特征选择
+### Consensus Feature Selection
 
-通过内层CV的统计共识机制选择稳定特征：
+Selects stable features through statistical consensus mechanism of inner CV:
 
-- 每个内层折独立选择特征
-- 统计特征在所有内层折中的出现频率
-- 选择频率超过阈值的特征作为共识特征集
+- Each inner fold independently selects features
+- Counts feature occurrence frequency across all inner folds
+- Selects features with frequency above threshold as consensus feature set
 
-### AUC计算优化
+### AUC Calculation Optimization
 
-**重要更新**：v1.0修复了AUC计算方式：
+**Important Update**: v1.0 fixes AUC calculation method:
 
-- **旧方法**：计算每折AUC的均值（不准确）
-- **新方法**：按repeat聚合所有outer_fold的OOF预测，计算每个repeat的整体AUC，然后取均值
+- **Old Method**: Calculate mean of per-fold AUC (inaccurate)
+- **New Method**: Aggregate all outer_fold OOF predictions by repeat, calculate overall AUC for each repeat, then take the mean
 
-这确保了AUC计算的准确性和统计意义。
+This ensures accuracy and statistical significance of AUC calculation.
 
-### 自适应方差过滤
+### Adaptive Variance Filtering
 
-根据数据的p/n比（特征数/样本数）动态调整方差过滤强度：
+Dynamically adjusts variance filtering intensity based on data p/n ratio (features/samples):
 
-- 高维数据（p>>n）：更严格的过滤
-- 低维数据（p<n）：更宽松的过滤
-- 可配置的过滤参数
+- High-dimensional data (p>>n): Stricter filtering
+- Low-dimensional data (p<n): More lenient filtering
+- Configurable filtering parameters
 
-## 输出结果
+## Output Results
 
-### Build命令输出结构
+### Build Command Output Structure
 
 ```
 output/
-├── 1_performance_metrics/        # 性能指标
-│   ├── nested_cv_pred_proba.csv # OOF预测概率
-│   ├── nested_cv_summary.csv     # 性能汇总
+├── 1_performance_metrics/        # Performance metrics
+│   ├── nested_cv_pred_proba.csv # OOF prediction probabilities
+│   ├── nested_cv_summary.csv     # Performance summary
 │   └── ...
-├── 2_final_model/                # 最终模型
-│   ├── consensus_features.json   # 共识特征集
+├── 2_final_model/                # Final model
+│   ├── consensus_features.json   # Consensus feature set
 │   ├── final_training_results.json
 │   └── ...
-├── 3_hyperparameter_analysis/    # 超参数分析
-└── 4_reproducibility/            # 可重现性信息
-    ├── run.log                   # 运行日志
-    └── final_run.yaml            # 完整配置
+├── 3_hyperparameter_analysis/    # Hyperparameter analysis
+└── 4_reproducibility/            # Reproducibility information
+    ├── run.log                   # Run log
+    └── final_run.yaml            # Complete configuration
 ```
 
-### Report命令输出结构
+### Report Command Output Structure
 
 ```
 output/reports/
-├── within_disease/               # 疾病内分析
-├── between_project/              # 项目间分析
-├── between_disease/              # 疾病间分析
-├── overall/                      # 整体分析
-├── models/                       # 模型比较
-└── predict_external_*/          # 外部预测
+├── within_disease/               # Within-disease analysis
+├── between_project/              # Inter-project analysis
+├── between_disease/               # Inter-disease analysis
+├── overall/                      # Overall analysis
+├── models/                       # Model comparison
+└── predict_external_*/          # External prediction
 ```
 
-## 贡献指南
+## Contributing
 
-我们欢迎贡献！请遵循以下步骤：
+Contributions are welcome! Please follow these steps:
 
-1. Fork本仓库
-2. 创建特性分支 (`git checkout -b feature/AmazingFeature`)
-3. 提交更改 (`git commit -m 'Add some AmazingFeature'`)
-4. 推送到分支 (`git push origin feature/AmazingFeature`)
-5. 开启Pull Request
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-### 开发环境设置
+### Development Environment Setup
 
 ```bash
-# 安装开发依赖
+# Install development dependencies
 pip install -e ".[dev]"
 
-# 运行测试
+# Run tests
 pytest
 
-# 代码格式化
+# Code formatting
 black src/
 
-# 类型检查
+# Type checking
 mypy src/
 ```
 
-## 常见问题
+## FAQ
 
-### Q: 如何选择合适的CV策略？
+### Q: How to choose the appropriate CV strategy?
 
 **A:** 
-- **K-Fold**：适用于样本量较大、队列分布均匀的情况
-- **LOCO (Leave-One-Cohort-Out)**：适用于需要评估跨队列泛化能力的情况
-- **Repeated K-Fold**：需要更稳定的性能估计时使用
+- **K-Fold**: Suitable for large sample sizes with uniform cohort distribution
+- **LOCO (Leave-One-Cohort-Out)**: Suitable when evaluating cross-cohort generalization ability
+- **Repeated K-Fold**: Use when more stable performance estimation is needed
 
-### Q: 如何解释共识特征？
+### Q: How to interpret consensus features?
 
-**A:** 共识特征是在内层CV的多个折中稳定出现的特征，表示这些特征对模型性能有稳定的贡献。
+**A:** Consensus features are features that stably appear across multiple inner CV folds, indicating these features have stable contributions to model performance.
 
-### Q: AUC计算为什么重要？
+### Q: Why is AUC calculation important?
 
-**A:** 正确的AUC计算方式（按repeat聚合）能够更准确地反映模型的真实性能，避免因每折样本量不同导致的偏差。
+**A:** The correct AUC calculation method (aggregated by repeat) can more accurately reflect the true performance of the model, avoiding bias caused by different sample sizes per fold.
 
-## 更新日志
+## Changelog
 
-### v1.0.0 (当前版本)
+### v1.0.0 (Current Version)
 
-**重大更新：**
-- ✅ 修复AUC计算方式：从每折AUC均值改为按repeat计算整体AUC
-- ✅ 完善报告生成系统：支持多种分析场景
-- ✅ 优化可视化功能：支持repeat均值ROC曲线
-- ✅ 增强可重现性：详细记录所有实验参数
+**Major Updates:**
+- ✅ Fixed AUC calculation: Changed from per-fold AUC mean to overall AUC calculated by repeat
+- ✅ Enhanced reporting system: Supports multiple analysis scenarios
+- ✅ Optimized visualization: Supports repeat-mean ROC curves
+- ✅ Enhanced reproducibility: Detailed recording of all experimental parameters
 
-**新功能：**
-- 支持Repeated K-Fold交叉验证
-- 扩展的模型支持（CatBoost, XGBoost等）
-- 完整的报告生成流水线
-- 自适应方差过滤优化
+**New Features:**
+- Support for Repeated K-Fold cross-validation
+- Extended model support (CatBoost, XGBoost, etc.)
+- Complete reporting pipeline
+- Adaptive variance filtering optimization
 
-## 许可证
+## License
 
-本项目采用 MIT 许可证 - 详见 [LICENSE](LICENSE) 文件
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
 
-## 致谢
+## Acknowledgments
 
-感谢所有为本项目做出贡献的开发者和研究者。
+Thanks to all developers and researchers who contributed to this project.
 
-## 联系方式
+## Contact
 
-- **Issues**: [GitHub Issues](https://github.com/yourusername/metaClassifier/issues)
-- **文档**: [在线文档](https://metaClassifier.readthedocs.io)
+- **Issues**: [GitHub Issues](https://github.com/juyanmei/MetaClassifier/issues)
+- **Documentation**: [Online Documentation](https://github.com/juyanmei/MetaClassifier)
 
 ---
 
-**metaClassifier v1.0** - 让宏基因组分类更简单、更可靠、更可重现 🧬🔬
+**metaClassifier v1.0** - Making microbiome classification simpler, more reliable, and more reproducible 🧬🔬
