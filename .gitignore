@@ -1,0 +1,27 @@
+# 忽略所有文件
+*
+
+# 但包含以下文件和目录
+!README.md
+!src/
+!src/metaClassifier/
+!src/metaClassifier/**
+!.gitignore
+
+# Python 缓存（在包含的目录中）
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyc
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# OS
+Thumbs.db
+
