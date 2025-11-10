@@ -268,38 +268,11 @@ black src/
 mypy src/
 ```
 
-## FAQ
-
-### Q: How to choose the appropriate CV strategy?
-
-**A:** 
-- **K-Fold**: Suitable for large sample sizes with uniform cohort distribution
-- **LOCO (Leave-One-Cohort-Out)**: Suitable when evaluating cross-cohort generalization ability
-- **Repeated K-Fold**: Use when more stable performance estimation is needed
-
-### Q: How to interpret consensus features?
-
-**A:** Consensus features are features that stably appear across multiple inner CV folds, indicating these features have stable contributions to model performance.
-
-### Q: Why is AUC calculation important?
-
-**A:** The correct AUC calculation method (aggregated by repeat) can more accurately reflect the true performance of the model, avoiding bias caused by different sample sizes per fold.
-
 ## Changelog
 
 ### v1.0.0 (Current Version)
 
-**Major Updates:**
-- ✅ Fixed AUC calculation: Changed from per-fold AUC mean to overall AUC calculated by repeat
-- ✅ Enhanced reporting system: Supports multiple analysis scenarios
-- ✅ Optimized visualization: Supports repeat-mean ROC curves
-- ✅ Enhanced reproducibility: Detailed recording of all experimental parameters
-
-**New Features:**
-- Support for Repeated K-Fold cross-validation
-- Extended model support (CatBoost, XGBoost, etc.)
-- Complete reporting pipeline
-- Adaptive variance filtering optimization
+- Updated nested CV
 
 ## License
 
