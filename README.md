@@ -14,7 +14,6 @@
 - [Quick Start](#quick-start)
 - [Installation](#installation)
 - [Usage Guide](#usage-guide)
-- [Project Structure](#project-structure)
 - [Documentation](#documentation)
 - [Contributing](#contributing)
 - [License](#license)
@@ -210,34 +209,6 @@ Optional Parameters:
   --output PATH             Output directory
   --builds_root PATH        Build results root directory
   --emit_predictions        Generate prediction results
-```
-
-## Project Structure
-
-```
-metaClassifier_v1.0/
-├── src/
-│   └── metaClassifier/          # Main source code
-│       ├── cli/                  # Command-line interface
-│       ├── core/                 # Core functionality modules
-│       ├── data/                 # Data processing
-│       ├── models/               # Model implementations
-│       ├── pipelines/            # Pipelines
-│       ├── evaluation/           # Evaluation modules
-│       ├── preprocessing/        # Preprocessing modules
-│       ├── config/              # Configuration files
-│       ├── utils/               # Utility functions
-│       ├── extended/            # Extended features
-│       └── main.py              # Main entry point
-├── docs/                        # Documentation
-│   ├── nested_cv_architecture.md
-│   ├── inner_cv_logic_detailed.md
-│   └── ...
-├── tests/                       # Test suite
-├── requirements.txt             # Dependencies
-├── setup.py                    # Installation script
-├── pyproject.toml              # Project configuration
-└── README.md                   # This file
 ```
 
 ## Documentation

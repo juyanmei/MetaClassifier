@@ -14,7 +14,6 @@
 - [快速开始](#快速开始)
 - [安装](#安装)
 - [使用指南](#使用指南)
-- [项目结构](#项目结构)
 - [文档](#文档)
 - [贡献指南](#贡献指南)
 - [许可证](#许可证)
@@ -210,34 +209,6 @@ metaClassifier report [OPTIONS]
   --output PATH             结果输出目录
   --builds_root PATH        构建结果根目录
   --emit_predictions        生成预测结果
-```
-
-## 项目结构
-
-```
-metaClassifier_v1.0/
-├── src/
-│   └── metaClassifier/          # 主源代码
-│       ├── cli/                  # 命令行接口
-│       ├── core/                 # 核心功能模块
-│       ├── data/                 # 数据处理
-│       ├── models/               # 模型实现
-│       ├── pipelines/            # 流水线
-│       ├── evaluation/           # 评估模块
-│       ├── preprocessing/        # 预处理模块
-│       ├── config/              # 配置文件
-│       ├── utils/               # 工具函数
-│       ├── extended/            # 扩展功能
-│       └── main.py              # 主入口
-├── docs/                        # 文档
-│   ├── nested_cv_architecture.md
-│   ├── inner_cv_logic_detailed.md
-│   └── ...
-├── tests/                       # 测试套件
-├── requirements.txt             # 依赖列表
-├── setup.py                    # 安装脚本
-├── pyproject.toml              # 项目配置
-└── README.md                   # 英文版（默认）
 ```
 
 ## 文档
