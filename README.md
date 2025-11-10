@@ -114,33 +114,6 @@ Data Loading & Preprocessing
 Model Deployment & Report Generation
 ```
 
-### Core Components
-
-```
-metaClassifier/
-├── core/                    # Core functionality
-│   ├── nested_cv_classifier.py      # Nested CV classifier
-│   ├── nested_cv_evaluator.py       # Nested CV evaluator
-│   ├── final_model_trainer.py       # Final model trainer
-│   ├── feature_selector.py          # Feature selector
-│   └── hyperparameter_tuner.py      # Hyperparameter tuner
-├── data/                    # Data processing
-│   ├── loader.py            # Data loading
-│   ├── preprocessor.py      # Data preprocessing
-│   └── validator.py         # Data validation
-├── models/                  # Model implementations
-├── pipelines/               # Pipelines
-│   ├── build.py             # Build pipeline
-│   └── report.py            # Report generation pipeline
-├── evaluation/              # Evaluation modules
-│   ├── metrics.py           # Performance metrics
-│   ├── visualizer.py        # Visualization
-│   └── reporter.py          # Report generation
-└── preprocessing/           # Preprocessing modules
-    ├── variance_filter.py   # Adaptive variance filtering
-    └── clr_transform.py     # CLR transformation
-```
-
 ## Quick Start
 
 ### Basic Usage
@@ -176,40 +149,6 @@ metaClassifier report \
     --models lasso \
     --metric auc \
     --output results/
-```
-
-### Python API Usage
-
-```python
-from metaClassifier.data.loader import DataLoader
-from metaClassifier.core.nested_cv_classifier import create_nested_cv_classifier
-from metaClassifier.core.base import CVStrategy
-
-# Load data
-data_loader = DataLoader()
-X, y, groups, original_features, constant_removed_features = data_loader.load_data(
-    prof_file="data/profile.csv",
-    metadata_file="data/metadata.csv",
-    use_presence_absence=True,
-    use_clr=False
-)
-
-# Create nested CV classifier
-classifier = create_nested_cv_classifier(
-    model_name="lasso",
-    cv_strategy=CVStrategy.REPEATED_KFOLD,
-    outer_folds=5,
-    inner_folds=3,
-    n_repeats=1,
-    enable_adaptive_filtering=True
-)
-
-# Run evaluation
-results = classifier.evaluate(X, y, cohort_info=groups)
-
-# Get results
-consensus_features = classifier.consensus_features_
-performance_metrics = classifier.performance_metrics_
 ```
 
 ## Installation
@@ -303,41 +242,6 @@ Optional Parameters:
   --output PATH             Output directory
   --builds_root PATH        Build results root directory
   --emit_predictions        Generate prediction results
-```
-
-### Configuration File Support
-
-Supports parameter configuration through YAML files:
-
-```yaml
-# config.yaml
-model:
-  name: lasso
-
-cv:
-  strategy: repeated_kfold
-  outer_folds: 5
-  inner_folds: 3
-  n_repeats: 1
-
-adaptive_filter:
-  enabled: true
-  min_q: 0.5
-  max_q: 0.95
-
-feature_selection:
-  enabled: true
-  threshold: 0.5
-  search_method: grid
-```
-
-Use configuration file:
-
-```bash
-metaClassifier build \
-    --prof_file data/profile.csv \
-    --metadata_file data/metadata.csv \
-    --config config.yaml
 ```
 
 ## Project Structure

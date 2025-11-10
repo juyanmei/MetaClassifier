@@ -113,33 +113,6 @@ metaClassifier v1.0 是一个专为宏基因组数据设计的机器学习分类
 模型部署与报告生成
 ```
 
-### 核心组件
-
-```
-metaClassifier/
-├── core/                    # 核心功能模块
-│   ├── nested_cv_classifier.py      # 嵌套CV分类器
-│   ├── nested_cv_evaluator.py       # 嵌套CV评估器
-│   ├── final_model_trainer.py       # 最终模型训练器
-│   ├── feature_selector.py          # 特征选择器
-│   └── hyperparameter_tuner.py      # 超参数调优器
-├── data/                    # 数据处理
-│   ├── loader.py            # 数据加载
-│   ├── preprocessor.py      # 数据预处理
-│   └── validator.py         # 数据验证
-├── models/                  # 模型实现
-├── pipelines/               # 流水线
-│   ├── build.py             # 构建流水线
-│   └── report.py            # 报告生成流水线
-├── evaluation/              # 评估模块
-│   ├── metrics.py           # 性能指标
-│   ├── visualizer.py        # 可视化
-│   └── reporter.py          # 报告生成
-└── preprocessing/           # 预处理模块
-    ├── variance_filter.py   # 自适应方差过滤
-    └── clr_transform.py     # CLR变换
-```
-
 ## 快速开始
 
 ### 基本使用
@@ -175,40 +148,6 @@ metaClassifier report \
     --models lasso \
     --metric auc \
     --output results/
-```
-
-### Python API使用
-
-```python
-from metaClassifier.data.loader import DataLoader
-from metaClassifier.core.nested_cv_classifier import create_nested_cv_classifier
-from metaClassifier.core.base import CVStrategy
-
-# 加载数据
-data_loader = DataLoader()
-X, y, groups, original_features, constant_removed_features = data_loader.load_data(
-    prof_file="data/profile.csv",
-    metadata_file="data/metadata.csv",
-    use_presence_absence=True,
-    use_clr=False
-)
-
-# 创建嵌套CV分类器
-classifier = create_nested_cv_classifier(
-    model_name="lasso",
-    cv_strategy=CVStrategy.REPEATED_KFOLD,
-    outer_folds=5,
-    inner_folds=3,
-    n_repeats=1,
-    enable_adaptive_filtering=True
-)
-
-# 运行评估
-results = classifier.evaluate(X, y, cohort_info=groups)
-
-# 获取结果
-consensus_features = classifier.consensus_features_
-performance_metrics = classifier.performance_metrics_
 ```
 
 ## 安装
@@ -302,41 +241,6 @@ metaClassifier report [OPTIONS]
   --output PATH             结果输出目录
   --builds_root PATH        构建结果根目录
   --emit_predictions        生成预测结果
-```
-
-### 配置文件支持
-
-支持通过YAML配置文件设置参数：
-
-```yaml
-# config.yaml
-model:
-  name: lasso
-
-cv:
-  strategy: repeated_kfold
-  outer_folds: 5
-  inner_folds: 3
-  n_repeats: 1
-
-adaptive_filter:
-  enabled: true
-  min_q: 0.5
-  max_q: 0.95
-
-feature_selection:
-  enabled: true
-  threshold: 0.5
-  search_method: grid
-```
-
-使用配置文件：
-
-```bash
-metaClassifier build \
-    --prof_file data/profile.csv \
-    --metadata_file data/metadata.csv \
-    --config config.yaml
 ```
 
 ## 项目结构
