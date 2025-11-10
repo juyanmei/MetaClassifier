@@ -64,11 +64,6 @@ Supports multiple machine learning models:
 - **Logistic Regression** - Classic logistic regression
 - **Random Forest** - Ensemble tree model
 - **CatBoost** - Gradient boosting tree
-- **XGBoost** - Extreme gradient boosting
-- **SVM** - Support Vector Machine
-- **Neural Network** - Neural network
-- **KNN** - K-Nearest Neighbors
-- **Gaussian Naive Bayes** - Gaussian Naive Bayes
 
 ### 📊 Reporting System
 
