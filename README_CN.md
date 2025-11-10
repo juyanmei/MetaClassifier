@@ -14,7 +14,6 @@
 - [快速开始](#快速开始)
 - [安装](#安装)
 - [使用指南](#使用指南)
-- [文档](#文档)
 - [贡献指南](#贡献指南)
 - [许可证](#许可证)
 
@@ -210,16 +209,6 @@ metaClassifier report [OPTIONS]
   --builds_root PATH        构建结果根目录
   --emit_predictions        生成预测结果
 ```
-
-## 文档
-
-详细的文档位于 `docs/` 目录：
-
-- [嵌套CV架构说明](docs/nested_cv_architecture.md) - 嵌套交叉验证的详细设计
-- [内层CV逻辑详解](docs/inner_cv_logic_detailed.md) - 内层CV的联合优化机制
-- [联合优化YAML信息](docs/joint_optimization_yaml_info.md) - 配置文件的详细说明
-- [最终模型训练架构](docs/final_model_training_architecture.md) - 第二阶段模型训练
-- [阈值设置指南](docs/threshold_setting_guide.md) - 决策阈值的选择
 
 ## 关键特性详解
 

@@ -14,7 +14,6 @@
 - [Quick Start](#quick-start)
 - [Installation](#installation)
 - [Usage Guide](#usage-guide)
-- [Documentation](#documentation)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -210,16 +209,6 @@ Optional Parameters:
   --builds_root PATH        Build results root directory
   --emit_predictions        Generate prediction results
 ```
-
-## Documentation
-
-Detailed documentation is located in the `docs/` directory:
-
-- [Nested CV Architecture](docs/nested_cv_architecture.md) - Detailed design of nested cross-validation
-- [Inner CV Logic Detailed](docs/inner_cv_logic_detailed.md) - Joint optimization mechanism of inner CV
-- [Joint Optimization YAML Info](docs/joint_optimization_yaml_info.md) - Detailed configuration file description
-- [Final Model Training Architecture](docs/final_model_training_architecture.md) - Stage 2 model training
-- [Threshold Setting Guide](docs/threshold_setting_guide.md) - Decision threshold selection
 
 ## Key Features Explained
 
