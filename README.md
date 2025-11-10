@@ -210,41 +210,6 @@ Optional Parameters:
   --emit_predictions        Generate prediction results
 ```
 
-## Key Features Explained
-
-### Nested Cross-Validation
-
-metaClassifier uses strict nested cross-validation design:
-
-1. **Outer CV**: Evaluates model generalization performance
-2. **Inner CV**: Performs feature selection and hyperparameter tuning within each outer fold
-3. **Data Separation**: Ensures strict separation of training, validation, and test data
-
-### Consensus Feature Selection
-
-Selects stable features through statistical consensus mechanism of inner CV:
-
-- Each inner fold independently selects features
-- Counts feature occurrence frequency across all inner folds
-- Selects features with frequency above threshold as consensus feature set
-
-### AUC Calculation Optimization
-
-**Important Update**: v1.0 fixes AUC calculation method:
-
-- **Old Method**: Calculate mean of per-fold AUC (inaccurate)
-- **New Method**: Aggregate all outer_fold OOF predictions by repeat, calculate overall AUC for each repeat, then take the mean
-
-This ensures accuracy and statistical significance of AUC calculation.
-
-### Adaptive Variance Filtering
-
-Dynamically adjusts variance filtering intensity based on data p/n ratio (features/samples):
-
-- High-dimensional data (p>>n): Stricter filtering
-- Low-dimensional data (p<n): More lenient filtering
-- Configurable filtering parameters
-
 ## Output Results
 
 ### Build Command Output Structure
