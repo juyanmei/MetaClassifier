@@ -83,32 +83,6 @@ Supports multiple analysis scenarios:
 - Boxplot comparisons
 - Feature importance visualization
 
-## Architecture
-
-### Two-Stage Workflow
-
-```
-Data Loading & Preprocessing
-    ↓
-┌─────────────────────────────────────┐
-│  Stage 1: Nested CV Evaluation     │
-│  - Outer CV loop                    │
-│  - Inner CV: Feature selection +    │
-│    Hyperparameter tuning            │
-│  - Consensus feature set generation │
-│  - Performance metrics calculation  │
-└─────────────────────────────────────┘
-    ↓
-┌─────────────────────────────────────┐
-│  Stage 2: Final Model Training      │
-│  - Use consensus feature set        │
-│  - Hyperparameter tuning            │
-│  - Model training & saving          │
-└─────────────────────────────────────┘
-    ↓
-Model Deployment & Report Generation
-```
-
 ## Quick Start
 
 ### Basic Usage
