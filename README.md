@@ -11,7 +11,6 @@
 
 - [Overview](#overview)
 - [Key Features](#key-features)
-- [Architecture](#architecture)
 - [Quick Start](#quick-start)
 - [Installation](#installation)
 - [Usage Guide](#usage-guide)
